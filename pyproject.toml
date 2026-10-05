@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "controle-de-exames"
+version = "0.1.0"
+description = "Controle desktop de exames de radiologia"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["PySide6>=6.6,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+build = ["pyinstaller>=6.19,<7"]
+
+[project.gui-scripts]
+controle-exames = "controle_exames.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+controle_exames = ["resources/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
